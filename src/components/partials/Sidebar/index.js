@@ -73,11 +73,11 @@ const Sidebar = () => {
             <ul className="pl-4">
               <li>
                 <Link
-                  href="#"
+                  href="/moderation/reviews"
                   className="flex items-center gap-2 p-4 hover:bg-gray-200"
                 >
                   <MessageCircleMore size={16} />
-                  Commentaires
+                  Avis
                 </Link>
               </li>
             </ul>
