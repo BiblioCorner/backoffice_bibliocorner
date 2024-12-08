@@ -53,7 +53,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/catalog/events"
                   className="flex items-center gap-2 p-4 hover:bg-gray-200"
                 >
                   <Calendar size={16} />
