@@ -44,7 +44,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/catalog/libraries"
                   className="flex items-center gap-2 p-4 hover:bg-gray-200"
                 >
                   <LibraryBig size={16} />
