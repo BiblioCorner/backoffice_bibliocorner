@@ -35,7 +35,7 @@ const Sidebar = () => {
             <ul className="pl-4">
               <li>
                 <Link
-                  href="#"
+                  href="/catalog/users"
                   className="flex items-center gap-2 p-4 hover:bg-gray-200"
                 >
                   <Users size={16} />
