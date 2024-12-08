@@ -1,6 +1,7 @@
 "use client"
 
 import Table from "@/components/ui/Table";
+import { formatText } from "@/utils";
 import { createColumnHelper } from "@tanstack/react-table";
 import Link from "next/link";
 import React from "react";
@@ -46,7 +47,7 @@ const UsersPage = () => {
     }),
     columnHelper.accessor("user_description", {
         header: "Description",
-        cell: (info) => info.getValue(),
+        cell: (info) => formatText(info.getValue()),
     }),
     columnHelper.accessor("profile_type", {
         header: "Type de profil",

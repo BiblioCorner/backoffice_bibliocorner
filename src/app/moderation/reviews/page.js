@@ -1,6 +1,7 @@
 "use client";
 
 import Table from "@/components/ui/Table";
+import { formatDate, formatText } from "@/utils";
 import { createColumnHelper } from "@tanstack/react-table";
 
 const ReviewsPage = () => {
@@ -23,6 +24,17 @@ const ReviewsPage = () => {
       likes_count: 5,
       library: { id: "2", name: "Westside Library" },
     },
+    {
+      id: "3",
+      user: { id: "3", name: "Alice Johnson" },
+      content: `
+      I found this book to be quite enlightening and informative. The author does an excellent job of breaking down complex concepts into easily understandable sections. The narrative is engaging and keeps the reader interested throughout. The book covers a wide range of topics and provides a comprehensive overview of the subject matter. I particularly appreciated the real-world examples and case studies that help to illustrate the key points. Overall, I would highly recommend this book to anyone looking to deepen their understanding of the topic. It is a valuable resource that I will refer back to often.
+      `,
+      rating_number: 2,
+      created_at: new Date(),
+      likes_count: 2,
+      library: { id: "1", name: "Central Library" },
+    },
   ];
 
   const columnHelper = createColumnHelper();
@@ -37,7 +49,7 @@ const ReviewsPage = () => {
     }),
     columnHelper.accessor("content", {
       header: "Contenu",
-      cell: (info) => info.getValue(),
+      cell: (info) => formatText(info.getValue()),
     }),
     columnHelper.accessor("rating_number", {
       header: "Note",
@@ -45,7 +57,7 @@ const ReviewsPage = () => {
     }),
     columnHelper.accessor("created_at", {
       header: "Date de création",
-      cell: (info) => info.getValue().toLocaleDateString(),
+      cell: (info) => formatDate(info.getValue()),
     }),
     columnHelper.accessor("likes_count", {
       header: "Nombre de likes",

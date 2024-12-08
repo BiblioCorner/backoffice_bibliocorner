@@ -1,6 +1,7 @@
 "use client";
 
 import Table from "@/components/ui/Table";
+import { formatText } from "@/utils";
 import { createColumnHelper } from "@tanstack/react-table";
 import Link from "next/link";
 const LibrariesPage = () => {
@@ -77,7 +78,7 @@ const LibrariesPage = () => {
     }),
     columnHelper.accessor("website", {
       header: "Site web",
-      cell: (info) => <Link href={info.getValue()}>{info.getValue().substring(0,20).concat('...')}</Link>,
+      cell: (info) => <Link href={info.getValue()}>{formatText(info.getValue())}</Link>,
     }),
     columnHelper.accessor("opening_hours", {
       header: "Heures d'ouverture",
