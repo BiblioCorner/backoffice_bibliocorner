@@ -23,9 +23,16 @@ const LibrariesPage = () => {
       ],
       phone: "123-456-7890",
       fax: "123-456-7891",
-      services: "Lending",
-      accessibility: "Wheelchair accessible",
-      rating: 4.5,
+      services: [
+        "Lending",
+        "Reference",
+        "Children's Programs",
+        "Teen Programs",
+        "Computer Access",
+        "Study Rooms",
+      ],
+      accessibility: ["Wheelchair accessible"],
+      rating: 4,
     },
     {
       id: "2",
@@ -44,9 +51,9 @@ const LibrariesPage = () => {
       ],
       phone: "123-456-7892",
       fax: "123-456-7893",
-      services: "Research",
-      accessibility: "Wheelchair accessible",
-      rating: 4.0,
+      services: ["Research"],
+      accessibility: ["Wheelchair accessible"],
+      rating: 4,
     },
   ];
   const columnHelper = createColumnHelper();
@@ -78,7 +85,9 @@ const LibrariesPage = () => {
     }),
     columnHelper.accessor("website", {
       header: "Site web",
-      cell: (info) => <Link href={info.getValue()}>{formatText(info.getValue())}</Link>,
+      cell: (info) => (
+        <Link href={info.getValue()}>{formatText(info.getValue())}</Link>
+      ),
     }),
     columnHelper.accessor("opening_hours", {
       header: "Heures d'ouverture",
@@ -102,25 +111,35 @@ const LibrariesPage = () => {
     }),
     columnHelper.accessor("services", {
       header: "Services",
-      cell: (info) => info.getValue(),
+      cell: (info) => (
+        <ul>
+          {info.getValue().map((s) => (
+            <li key={s}>{s}</li>
+          ))}
+        </ul>
+      ),
     }),
     columnHelper.accessor("accessibility", {
       header: "Accessibilité",
-      cell: (info) => 
-        
-       { switch(info.getValue()){
-        case "Wheelchair accessible":
-          return "Accessible aux fauteuils roulants";
-        case "Not wheelchair accessible":
-            return "Non accessible aux fauteuils roulants";
-        default:
-            return "Inconnu";
-            
-        }},
+      cell: (info) => (
+        <ul>
+          {info.getValue().map((a) => (
+            <li key={a}>{a}</li>
+          ))}
+        </ul>
+      ),
     }),
     columnHelper.accessor("rating", {
       header: "Évaluation",
       cell: (info) => info.getValue(),
+    }),
+    columnHelper.accessor("Actions", {
+      cell: (info) => (
+        <div className="flex gap-2">
+          <button className="text-blue-500">Modifier</button>
+          <button className="text-red-500">Supprimer</button>
+        </div>
+      ),
     }),
   ];
 

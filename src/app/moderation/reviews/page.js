@@ -71,8 +71,8 @@ const ReviewsPage = () => {
       header: "Actions",
       cell: (info) => (
         <div className="flex gap-2">
-          <button className="text-blue-500">Avertir</button>
-          <button className="text-red-500">Supprimer</button>
+          <button className="text-green-500">Accepter</button>
+          <button className="text-red-500">Rejeter</button>
         </div>
       ),
     }),

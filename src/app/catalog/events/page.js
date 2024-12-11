@@ -69,6 +69,14 @@ const EventsPage = () => {
       header: "Lien d'inscription",
       cell: (info) => <Link href={info.getValue()}>{info.getValue()}</Link>,
     }),
+    columnHelper.accessor("Actions", {
+      cell: (info) => (
+          <div className="flex gap-2">
+            <button className="text-blue-500">Modifier</button>
+            <button className="text-red-500">Supprimer</button>
+          </div>
+      ),
+  }),
   ];
   return (
     <>
