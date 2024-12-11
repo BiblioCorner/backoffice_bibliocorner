@@ -12,7 +12,8 @@ const Table = ({ columns, data }) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-      <table className="min-w-full divide-y divide-gray-200 border bprder-gray-200">
+    <div className="overflow-x-auto max-w-7xl">
+      <table className=" w-full divide-y divide-gray-200 border border-gray-200">
         <thead className="bg-gray-100">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
@@ -41,6 +42,7 @@ const Table = ({ columns, data }) => {
           ))}
         </tbody>
       </table>
+    </div>
       
   );
 };

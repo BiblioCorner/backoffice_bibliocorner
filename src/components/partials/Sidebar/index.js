@@ -17,7 +17,7 @@ const Sidebar = () => {
         <ul>
           <li>
             <Link
-              href="#"
+              href="/"
               className="flex items-center gap-2 p-4 hover:bg-gray-200"
             >
               <LayoutDashboard size={16} />
